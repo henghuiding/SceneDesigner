@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="SceneDesigner - Zhenyuan Qin">
+  <!-- <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS"> -->
+  <meta name="keywords" content="AIGC, visual generation, 3d control, machine learning, computer vision, AI">
+  <meta name="author" content="Zhenyuan Qin, Xincheng Shuai, Henghui Ding">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Fudan University">
+  <meta property="og:title" content="SceneDesigner">
+  <!-- <meta property="og:description" content=""> -->
+  <meta property="og:url" content="https://qqzy.github.io/SceneDesigner">
+  <meta property="og:image" content="static/images/teaser.png">
+  <meta property="og:image:alt" content="SceneDesigner - Research Preview">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Zhenyuan Qin">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="AIGC">
+  <meta property="article:tag" content="3d control">
+
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="SceneDesigner: Controllable Multi-Object Image Generation with 9-DoF Pose Manipulation">
+  <meta name="citation_author" content="Zhenyuan Qin">
+  <meta name="citation_author" content="Xincheng Shuai">
+  <meta name="citation_author" content="Henghui Ding">
+  <meta name="citation_publication_date" content="2025">
+  <meta name="citation_conference_title" content="NeurIPS 2025">
+  <!-- <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf"> -->
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <title>SceneDesigner</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/fudancvl.webp">
+  <link rel="apple-touch-icon" href="static/images/fudancvl.webp">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <script defer src="static/js/tex-mml-chtml.js"></script>
+  
+
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">SceneDesigner: Controllable Multi-Object Image Generation with 9-DoF Pose Manipulation</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://github.com/qqzy/" target="_blank">Zhenyuan Qin</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="https://github.com/xinchengshuai/" target="_blank">Xincheng Shuai</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://henghuiding.com/" target="_blank">Henghui Ding</a><sup><object id="object" data="static/images/envelope.svg" width="16" height="16" type="image/svg+xml"></object> </sup></a>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">Fudan University<br><font color="#FF6403"><b>NeurIPS 2025 (Spotlight)</b></font></span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution, &nbsp;&nbsp;<object id="object" data="static/images/envelope.svg" width="16" height="16" type="image/svg+xml" style="position:relative;top:3px;"></object>Corresponding Author</small>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                      <span class="link-block">
+                        <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/115170" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                  <span class="link-block">
+                    <a href="https://github.com/FudanCVL/SceneDesigner" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- TODO: Update with your arXiv paper ID -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+
+                <span class="link-block">
+                    <a href="https://youtu.be/Ij8BI-gkPxo" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>YouTube</span>
+                  </a>
+                </span>
+
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/teaser.png" alt="Teaser image" style="width:100%; height:auto;" loading="eager">
+      <h2 class="subtitle has-text-centered">
+      9D pose control results of the <strong>SceneDesigner</strong>. The figures show the applications in single-object, multi-object, and customization scenarios, exhibiting high quality, flexibility and fidelity.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Controllable image generation has attracted increasing attention in recent years, enabling users to manipulate visual content such as identity and style. However, achieving simultaneous control over the 9D poses (location, size, and orientation) of multiple objects remains an open challenge. Despite recent progress, existing methods often suffer from limited controllability and degraded quality, falling short of comprehensive multi-object 9D pose control. To address these limitations, we propose <strong><em>SceneDesigner</em></strong>, a method for accurate and flexible multi-object 9-DoF pose manipulation. SceneDesigner incorporates a branched network to the pre-trained base model and leverages a new representation, <strong><em>CNOCS map</em></strong>, which encodes 9D pose information from the camera view. This representation exhibits strong geometric interpretation properties, leading to more efficient and stable training. To support training, we construct a new dataset, <strong><em>ObjectPose9D</em></strong>, which aggregates images from diverse sources along with 9D pose annotations. To further address data imbalance issues, particularly performance degradation on low-frequency poses, we introduce a two-stage training strategy with reinforcement learning, where the second stage fine-tunes the model using a reward-based objective on rebalanced data. At inference time, we propose <strong><em>Disentangled Object Sampling</em></strong>, a technique that mitigates insufficient object generation and concept confusion in complex multi-object scenes. Moreover, by integrating user-specific personalization weights, SceneDesigner enables customized pose control for reference subjects. Extensive qualitative and quantitative experiments demonstrate that SceneDesigner significantly outperforms existing approaches in both controllability and quality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<section class="hero ">
+  
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title">Manipulation</h2>
+      <img src="static/images/manipulation.png" alt="" style="width:100%; height:auto;" loading="eager">
+      <h2 class="subtitle">
+      SceneDesigner introduces a user interaction workflow that makes complex 3D scene creation accessible. The process begins with the user operating in a simple 3D interface, where they can place, scale, and rotate cuboids to visually define the precise 9-DoF pose for each desired object. Then, the system will convert the user-defined 3D layout into a novel 2D representation called a CNOCS Map. This map, combined with the text prompt, serves as a comprehensive guide for the generative model, which then produces a high-fidelity image that strictly conforms to the user's spatial and semantic specifications.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light">
+  
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title">Methodology</h2>
+      <div class="has-text-centered">
+        <img src="static/images/c-nocs-map.png" alt="CNOCS map representation: per-pixel normalized 3D coordinates on the object's cuboid surface" style="width:60%; height:auto;" loading="eager">
+      </div>
+      <div class="content">
+        <p>
+          We propose <strong>CNOCS Map</strong>, a representation for 9-DoF pose. For each pixel that belongs to an object, CNOCS Map stores its normalized 3D coordinates on the surface of the corresponding oriented cuboid, providing a compact and geometrically interpretable conditioning signal.
+        </p>
+        <h3 class="title is-4" style="margin-top:1rem;">Two-stage training</h3>
+        <ol>
+          <li><strong>Stage 1 — Base pose controllability.</strong> Train on the large-scale ObjectPose9D dataset to align pose conditions with the image generation process and acquire the fundamental 9-DoF control ability. The objective is defined in Equation (1).</li>
+          <li><strong>Stage 2 — Imbalance-aware fine-tuning.</strong> Fine-tune with reinforcement learning to mitigate data imbalance (e.g., rare back-facing poses). As in Equation (2), the objective maximizes a reward <em>r</em> that measures pose accuracy, improving fidelity on low-frequency, complex poses.</li>
+        </ol>
+      </div>
+      <div class="has-text-centered">
+        <img src="static/images/formula1.png" alt="Objective for Stage 1 (Equation 1)" style="width:60%; height:auto;" loading="eager">
+        <p class="is-size-6 has-text-grey">Equation (1): supervised objective in Stage 1</p>
+      </div>
+      <div class="has-text-centered" style="margin-top:0.75rem;">
+        <img src="static/images/formula2.png" alt="Objective for Stage 2 with reward r (Equation 2)" style="width:60%; height:auto;" loading="eager">
+        <p class="is-size-6 has-text-grey">Equation (2): reward-based objective in Stage 2</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title">Annotation Pipeline</h2>
+      <img src="static/images/dataset_annotation.png" alt="" style="width:100%; height:auto;" loading="eager">
+      <h2 class="subtitle">
+      The pipeline takes a 2D image and masks as input and simultaneously estimates both the 3D point clouds and the orientation for the objects. Next, this information is used to fit oriented bounding boxes for each object. Finally, this process outputs the 9D poses, which define the precise location, size, and orientation of each object in 3D space.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light">
+  
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title">Experiments</h2>
+      <div class="has-text-centered">
+        <img src="static/images/exp.png" alt="CNOCS map representation: per-pixel normalized 3D coordinates on the object's cuboid surface" style="width:100%; height:auto;" loading="eager">
+      </div>
+      <h2 class="subtitle">
+      We compare SceneDesigner with state-of-the-art methods. LOOSECONTROL (LC) encodes pose information into 3D boxes with depth, an approach that can be ambiguous in certain scenarios. Continuous 3D Words (C3DW) directly encodes object azimuth as a vector injected into the network, but it lacks control over position and more complex orientations.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title">More Results</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/carousel1.png" alt="result visualization" loading="lazy"/>
+      </div>
+      <div class="item">
+        
+        <img src="static/images/carousel2.png" alt="result visualization" loading="lazy"/>
+      </div>
+      <div class="item">
+        
+        <img src="static/images/carousel3.png" alt="result visualization" loading="lazy"/>
+     </div>
+     <div class="item">
+      
+      <img src="static/images/carousel4.png" alt="result visualization" loading="lazy"/>
+    </div>
+      <div class="item">
+      
+      <img src="static/images/carousel5.png" alt="result visualization" loading="lazy"/>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+
+
+
+
+
+
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{SceneDesigner,
+        title={SceneDesigner: Controllable Multi-Object Image Generation with 9-DoF Pose Manipulation},
+        author={Qin, Zhenyuan and Shuai, Xincheng and Ding, Henghui},
+        booktitle={NeurIPS},
+        year={2025}
+      }</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+<a href="https://clustrmaps.com/site/1c8ht" title="Visit tracker" target="_blank"><img src="//www.clustrmaps.com/map_v2.png?d=W1D2QL7LPI2VDobWhma4zgsaxR--1LsPR1v551BSz5o&cl=ffffff" height="1" width="1"/ style="display:block;margin-top:5px;margin-bottom:0px;margin-left:auto;text-align:right"></a>
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            <center><font size=2>© FudanCVL | Last updated: 16/11/2025</font></center>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
